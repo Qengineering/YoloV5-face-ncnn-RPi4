@@ -3,18 +3,31 @@
 _target size 1920._
 ## YoloV5 face recognition with the ncnn framework. <br/>
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)<br/><br/>
+Paper: https://arxiv.org/pdf/2105.12931.pdf<br><br>
 Special made for a bare Raspberry Pi 4, see [Q-engineering deep learning examples](https://qengineering.eu/deep-learning-examples-on-raspberry-32-64-os.html)
 
 ------------
 
 ## Benchmark.
-| Model  | size | objects | mAP |  RPi 4 64-OS 1950 MHz |
-| ------------- | :-----:  | :-----:  | :-------------:  | :-------------: |
-| YoloV5n | 640x640 nano| 80 | 28.0 | 1.4 - 2.0  FPS |
-| YoloV5s | 640x640 small| 80 | 37.4 | 1.0 FPS | 
-| YoloV5l | 640x640 large| 80 | 49.0 | 0.25 FPS | 
-| YoloV5x | 640x640 x-large| 80 | 50.7 | 0.15 FPS |
-| [Yoact](https://github.com/Qengineering/Yolact-ncnn-Raspberry-Pi-4) | 550x550 | 80 | 28.2 | 0.28 FPS |
+| Model  | framework | model |size |  mAP | Jetson Nano<br/>2015 MHz | RPi 4 64-OS<br/>1950 MHz |
+| ------------- | :-----: | :-----:  | :-----:  | :-----:  | :-------------:  | :-------------: |
+| Ultra-Light-Fast| ncnn | slim-320 | 320x240 | 67.1  |    - FPS | 26 FPS |
+| Ultra-Light-Fast| ncnn | RFB-320 | 320x240 | 69.8  |    - FPS | 23 FPS |
+| Ultra-Light-Fast| MNN | slim-320 | 320x240 | 67.1  | 70 FPS | 65 FPS |
+| Ultra-Light-Fast| MNN | RFB-320 | 320x240 | 69.8  | 60 FPS | 56 FPS |
+| Ultra-Light-Fast| OpenCV | slim-320 | 320x240 | 67.1  | 48 FPS | 40 FPS |
+| Ultra-Light-Fast| OpenCV | RFB-320 | 320x240 | 69.8  | 43 FPS | 35 FPS |
+| Ultra-Light-Fast + Landmarks| ncnn | slim-320 | 320x240 | 67.1  | 50 FPS | 24 FPS |
+| LFFD| ncnn | 5 stage | 320x240 | 88.6 | 16.4 FPS | 4.85 FPS |
+| LFFD| ncnn | 8 stage | 320x240 | 88.6 | 11.7 FPS | 3.45 FPS |
+| LFFD| MNN | 5 stage | 320x240 | 88.6 | 2.6 FPS | 2.17 FPS |
+| LFFD| MNN | 8 stage | 320x240 | 88.6 | 1.8 FPS | 1.49 FPS |
+| CenterFace| ncnn | - | 320x240 | 93 | 16.5 FPS | 6.8 FPS |
+| YoloV5 face | ncnn | - | 320x320 | 93.6 |  - FPS | **17.2 FPS** |
+| YoloV5 face | ncnn | - | 480x480 | 93.6 |  - FPS | **7.2 FPS** |
+| YoloV5 face | ncnn | - | 640x640 | 93.6 |  - FPS | **4.0 FPS** |
+| YoloV5 face | ncnn | - | 1280x1280 | 93.6 |  - FPS | **1.0 FPS** |
+| YoloV5 face | ncnn | - | 1920x1920 | 93.6 |  - FPS | **0.5 FPS** |
 
 ------------
 
